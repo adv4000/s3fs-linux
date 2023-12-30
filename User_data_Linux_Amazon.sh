@@ -36,5 +36,5 @@ yum install s3fs-fuse -y
 mkdir $MOUNT
 s3fs -o allow_other -o iam_role=auto -o endpoint=$REGION -o url="https://s3-$REGION.amazonaws.com" $BUCKET $MOUNT
 
-echo "s3fs#$BUCKET $MOUNT fuse allow_other,nonempty,use_path_request_style,iam_role=auto,url=https://s3-$REGION.amazonaws.com,endpoint=$REGION 0 0" >> /etc/fstab
+echo "s3fs#$BUCKET $MOUNT fuse _netdev,allow_other,nonempty,use_path_request_style,iam_role=auto,url=https://s3-$REGION.amazonaws.com,endpoint=$REGION 0 0" >> /etc/fstab
 
